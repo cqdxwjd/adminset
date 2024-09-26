@@ -15,7 +15,7 @@
         adminset/install/server/auto_install.sh
         如果手动安装则跳过此步。
         关闭防火墙
-        访问：http://your_server_ip
+        访问：http://your_server_ip:8180
         使用用户名admin 密码Adminset123
 
     1.3、执行安装脚本-手动(不建议，如果使用自动安装则跳过此步骤)

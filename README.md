@@ -54,8 +54,8 @@ service adminsetd start|stop|restart|status
 
 
 ## 访问
-    关闭防火墙或开通80端口
-    http://your_server_ip
+    关闭防火墙或开通8180端口
+    http://your_server_ip:8180
     自动安装的用户名admin 密码Adminset123
     手动安装使用自定义创建的super admin用户名密码
 

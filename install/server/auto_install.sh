@@ -61,7 +61,7 @@ mysql -e "CREATE DATABASE if not exists adminset DEFAULT CHARACTER SET utf8 COLL
 # 安装mongodb
 echo "####install mongodb####"
 echo "installing a new Mongodb...."
-yum install -y mongodb mongodb-server
+yum install -y mongodb-org mongodb-org-server
 /bin/systemctl enable mongod.service
 /bin/systemctl start mongod.service
 
@@ -75,7 +75,8 @@ index-url = http://mirrors.aliyun.com/pypi/simple/
 [install]
 trusted-host=mirrors.aliyun.com
 EOF
-pip install -U pip
+curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o /tmp/get-pip.py
+python /tmp/get-pip.py
 pip install --ignore-installed enum34==1.1.6
 pip install --ignore-installed ipaddress==1.0.18
 pip install kombu==4.2.1
@@ -88,7 +89,7 @@ python setup.py build
 python setup.py install
 
 cd $adminset_dir
-pip install -r requirements.txt
+pip install --ignore-installed -r requirements.txt
 python manage.py makemigrations
 python manage.py migrate
 echo "please create your adminset' super admin:"
@@ -154,6 +155,6 @@ echo "#######Waiting Starting Service##############"
 /bin/systemctl restart nginx
 /bin/systemctl restart sshd
 /bin/systemctl restart adminset
-echo "please access website http://server_ip"
+echo "please access website http://server_ip:8180"
 echo "you have installed adminset successfully!!!"
 echo "################################################"
